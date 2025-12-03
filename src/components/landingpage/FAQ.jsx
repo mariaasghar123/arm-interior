@@ -96,7 +96,7 @@ export default function FAQ() {
                   openIndex === index ? 'rotate-180' : ''
                 }`}>
                   <svg 
-                    className="w-6 h-6 text-white group-hover:text-yellow-300" 
+                    className="w-6 h-6 text-black group-hover:text-yellow-300" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"

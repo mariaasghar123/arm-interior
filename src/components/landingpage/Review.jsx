@@ -65,7 +65,7 @@ export default function CustomerReviews() {
   // Wavy SVG for top
   const TopWave = () => (
     <svg
-      className="absolute top-0 left-0 w-full h-20"
+      className="absolute top-0 left-0 w-full h-20 z-20"
       viewBox="0 0 1200 120"
       preserveAspectRatio="none"
     >
@@ -111,30 +111,30 @@ export default function CustomerReviews() {
   );
 
   return (
-    <section className="relative bg-black/ text-white py-24 overflow-hidden">
+    <section className="relative  text-white py-24 overflow-hidden">
       {/* Top Wavy SVG */}
       <TopWave />
 
       {/* Background with Overlay */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{ backgroundImage: "url('/media/review-bg.jpg')" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+          style={{ backgroundImage: "url('/media/new3.webp')" }}
         ></div>
-        <div className="absolute inset-0 bg-black/90"></div>
+        <div className="absolute inset-0 bg-black/70"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <h2 className="text-5xl font-bold text-yellow-400 mb-16 text-center">
-          Customer <span className="text-white">Reviews</span>
+          Customer Reviews
         </h2>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           <Slider {...settings}>
             {reviews.map((review, index) => (
               <div key={index} className="px-4 focus:outline-none">
-                <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-8 shadow-2xl border border-yellow-500/20 hover:border-yellow-500/40 transition-all duration-300 h-full flex flex-col">
+                <div className=" rounded-2xl p-8 shadow-2xl  hover:border-yellow-500/40 transition-all duration-300 h-full flex flex-col">
                   {/* Quote Icon */}
                   <div className="text-yellow-400 text-5xl mb-6">"</div>
 
@@ -174,7 +174,7 @@ export default function CustomerReviews() {
         </div>
 
         {/* Navigation Dots (Custom) */}
-        <div className="flex justify-center mt-12 space-x-3">
+        {/* <div className="flex justify-center mt-12 space-x-3">
           {[...Array(Math.ceil(reviews.length / 3))].map((_, i) => (
             <button
               key={i}
@@ -182,7 +182,7 @@ export default function CustomerReviews() {
               aria-label={`Go to review set ${i + 1}`}
             ></button>
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Wavy SVG */}

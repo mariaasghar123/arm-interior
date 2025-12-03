@@ -122,7 +122,7 @@ export default function AboutUs() {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -bottom-6 left-6 bg-white rounded-xl shadow-2xl p-4 md:p-6">
+            {/* <div className="absolute -bottom-6 left-6 bg-white rounded-xl shadow-2xl p-4 md:p-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center">
                   <span className="text-xl">⭐</span>
@@ -132,7 +132,7 @@ export default function AboutUs() {
                   <div className="text-sm text-gray-600">Best Interior Design 2024</div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
