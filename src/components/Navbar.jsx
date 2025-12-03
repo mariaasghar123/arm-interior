@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Logo from "./Logo";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,18 +51,22 @@ export default function Navbar() {
 
   return (
     <div className="flex sm:flex-col mx-auto left-0 right-0 items-center justify-center z-50">
-      <Logo size={180} className="pl-20 sm:pl-0" />
+      <Logo size={180} className="pl-20 sm:pl-0 z-30" />
 
       <nav className="sm:bg-black rounded-xl px-8 py-4 flex flex-col md:flex-row items-center justify-center max-w-4xl w-full relative">
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
           {links.map((link) => (
-            <li key={link} className="relative cursor-pointer text-white group">
-              <span className="transition-colors duration-300 group-hover:text-yellow-300">
-                {link}
-              </span>
-              <span className="absolute left-0 -bottom-5 h-1 w-0 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
-            </li>
+            <li key={link} className="relative group">
+  <Link
+    href={`/${link.toLowerCase().replace(/ /g, "-")}`}
+    className="cursor-pointer text-white transition-colors duration-300 group-hover:text-yellow-300"
+  >
+    {link}
+  </Link>
+  <span className="absolute left-0 -bottom-5 h-1 w-0 bg-yellow-300 transition-all duration-300 group-hover:w-full"></span>
+</li>
+
           ))}
         </ul>
 
@@ -107,26 +112,22 @@ export default function Navbar() {
                     key={link}
                     className="overflow-hidden text-center"
                   >
-                    <button
-                      className="text-xl md:text-5xl font-bold text-white hover:text-yellow-300 transition-all duration-500 transform hover:scale-110 active:scale-95 w-full py-2"
-                      style={{
-                        transform: isOpen && isMobile ? 'translateY(0) scale(1)' : `translateY(-${(index + 1) * 80}px) scale(0.8)`,
-                        opacity: isOpen && isMobile ? 1 : 0,
-                        transitionDelay: isOpen && isMobile ? `${index * 100}ms` : '0ms',
-                        transitionDuration: '800ms',
-                        transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-                      }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsOpen(false);
-                        // Add navigation logic here
-                      }}
-                    >
-                      {link}
-                      {/* Animated underline on hover */}
-                      <span className="block h-0.5 w-0 mx-auto bg-gradient-to-r from-transparent via-yellow-300 to-transparent transition-all duration-500 group-hover:w-3/4 mt-2"></span>
-                    </button>
+                    <Link
+  href={`/${link.toLowerCase().replace(/ /g, "-")}`}
+  onClick={() => setIsOpen(false)}
+  className="text-xl md:text-5xl font-bold text-white hover:text-yellow-300 transition-all duration-500 transform hover:scale-110 active:scale-95 block py-2"
+  style={{
+    transform: isOpen && isMobile ? 'translateY(0) scale(1)' : `translateY(-${(index + 1) * 80}px) scale(0.8)`,
+    opacity: isOpen && isMobile ? 1 : 0,
+    transitionDelay: isOpen && isMobile ? `${index * 100}ms` : '0ms',
+    transitionDuration: '800ms',
+    transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+    textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+  }}
+>
+  {link}
+</Link>
+
                   </li>
                 ))}
               </ul>

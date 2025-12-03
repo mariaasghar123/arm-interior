@@ -11,6 +11,12 @@ import CustomerReviews from './Review'
 import FAQ from './FAQ'
 
 function LandingPage() {
+
+  const homeCategories = [
+  { id: 1, title: "Modern Wallpapers", image: "/media/card1.webp", description: "Latest designs" },
+  { id: 2, title: "Luxury Vinyl", image: "/media/card2.webp", description: "Premium quality" },
+  { id: 3, title: "Kids Collection", image: "/media/card3.webp", description: "Fun & colorful" }
+];
   return (
     <div>
       {/* <Logo/>
@@ -25,7 +31,12 @@ function LandingPage() {
     backgroundImage: "url('/media/bg-arm.jpg')",
   }}>
       <WallpaperCategories/>
-      <ThreeCardSlider/>
+      <ThreeCardSlider data={homeCategories}
+
+      title="Home Wallpapers"
+      subtitle="Trending designs curated for you"
+      cols={3} 
+      interval={4000}/>
       <AboutUs/>
       </div>
       <ProductSlider/>
