@@ -13,9 +13,9 @@ import FAQ from './FAQ'
 function LandingPage() {
 
   const homeCategories = [
-  { id: 1, title: "Modern Wallpapers", image: "/media/card1.webp", description: "Latest designs" },
-  { id: 2, title: "Luxury Vinyl", image: "/media/card2.webp", description: "Premium quality" },
-  { id: 3, title: "Kids Collection", image: "/media/card3.webp", description: "Fun & colorful" }
+  { id: 1, title: " WALLPAPERS", image: "/media/card1.webp", description: "Latest designs", link: "/wallpapers" },
+  { id: 2, title: "FLOORING", image: "/media/card2.webp", description: "Premium quality", link: "/floorings" },
+  { id: 3, title: "WINDOW BLIND", image: "/media/card3.webp", description: "Fun & colorful", link: "/window-blinds" },
 ];
   return (
     <div>

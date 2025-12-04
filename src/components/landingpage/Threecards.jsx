@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function ThreeCardSlider({ data, interval = 3000, title = "Featured Collections", subtitle = "Discover our handpicked selection of premium wallpapers", imageWidth = "w-full", cols="3" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,55 +47,56 @@ export default function ThreeCardSlider({ data, interval = 3000, title = "Featur
     ${cols === 4 && "md:grid-cols-4"}
   `}
 >
-          {categories.map((item, index) => (
-            <div
-              key={item.id}
-              className={`relative group cursor-pointer transition-all duration-500 ${
-                index === currentIndex ? "transform scale-105" : "opacity-80"
-              }`}
-              onClick={() => goToSlide(index)}
-            >
-              {/* Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden mb-4">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+          {categories.map((item, index) => {
+  const CardContent = (
+    <div
+      className={`relative group cursor-pointer transition-all duration-500 ${
+        index === currentIndex ? "transform scale-105" : "opacity-80"
+      }`}
+    >
+      {/* Image */}
+      <div className="relative h-64 md:h-80 overflow-hidden mb-4">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
 
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
 
-                {/* Pulse Indicator */}
-                {index === currentIndex && (
-                  <div className="absolute top-4 right-4">
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-                  </div>
-                )}
-              </div>
+        {index === currentIndex && (
+          <div className="absolute top-4 right-4">
+            <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+          </div>
+        )}
+      </div>
 
-              {/* Title & Description */}
-              <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900">
-                  {item.title}
-                </h3>
+      {/* Title & Description */}
+      <div className="text-center">
+        <h3 className="text-xl md:text-2xl font-bold text-gray-900">{item.title}</h3>
+        <div
+          className={`h-1 w-16 mx-auto mt-2 transition-all duration-500 ${
+            index === currentIndex ? "bg-yellow-400 w-24" : "bg-gray-300"
+          }`}
+        />
+        <p className="text-gray-600 mt-3 text-sm">{item.description}</p>
+      </div>
 
-                {/* Underline */}
-                <div
-                  className={`h-1 w-16 mx-auto mt-2 transition-all duration-500 ${
-                    index === currentIndex
-                      ? "bg-yellow-400 w-24"
-                      : "bg-gray-300"
-                  }`}
-                />
+      <div className="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-yellow-400/30 transition pointer-events-none"></div>
+    </div>
+  );
 
-                <p className="text-gray-600 mt-3 text-sm">{item.description}</p>
-              </div>
+  // Conditional Link
+  return item.link ? (
+    <Link key={item.id} href={item.link}>
+      {CardContent}
+    </Link>
+  ) : (
+    <div key={item.id}>{CardContent}</div>
+  );
+})}
 
-              {/* Hover Border */}
-              <div className="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-yellow-400/30 transition pointer-events-none"></div>
-            </div>
-          ))}
+
         </div>
       </div>
 

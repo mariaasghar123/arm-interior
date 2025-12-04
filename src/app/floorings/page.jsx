@@ -1,5 +1,3 @@
-import HeroSection from '@/components/landingpage/HeroSection'
-import WallpaperGallery from '@/components/landingpage/wallpapercategories'
 import Navbar from '@/components/Navbar'
 import React from 'react'
 import Floor1 from './components/Floor1';
@@ -13,7 +11,7 @@ function page() {
   return (
     <div>
       <div
-        className=" bg-cover bg-center bg-no-repeat relative"
+        className="bg-cover bg-center bg-no-repeat relative"
         style={{
           backgroundImage: "url('/media/floor.jpeg')",
         }}

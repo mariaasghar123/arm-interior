@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const links = ["Walls", "Floorings", "Window Blinds", "Shop", "FAQs", "Contact Us"];
+  const links = ["Wallpapers", "Floorings", "Window Blinds", "Shop", "FAQs", "Contact Us"];
 
   // Detect screen size and auto-close menu on large screens
   useEffect(() => {

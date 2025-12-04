@@ -1,10 +1,8 @@
-import HeroSection from '@/components/landingpage/HeroSection'
-import WallpaperGallery from '@/components/landingpage/wallpapercategories'
+
 import Navbar from '@/components/Navbar'
 import React from 'react'
-import ThreeCardSlider from '@/components/landingpage/Threecards';
 import Windowblind1 from './components/Windowblind1';
-import FourCards from '../walls/components/FourCards';
+import FourCards from '../wallpapers/components/FourCards';
 
 function page() {
   const homeCategories = [
@@ -28,8 +26,8 @@ function page() {
     { id: 4, title: "ZEBRA WINDOW BLINDS", bgImage: "/media/window4.webp" },
     { id: 5, title: "BAMBO0 CHICK BLINDS", bgImage: "/media/window5.webp" },
     { id: 6, title: "SHANGRI-LA BLINDS", bgImage: "/media/window6.webp" },
-
   ]}
+  
   cardWidth="w-full mx-auto"
   cols={3} 
   showLine={true}
