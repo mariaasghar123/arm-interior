@@ -2,58 +2,52 @@
 
 import React from "react";
 
-export default function FourCards() {
-  const cards = [
-    {
-      id: 1,
-      title: "Korean Wallpapers",
-      bgImage: "/media/wall1.webp",
-      description: "Contemporary designs for modern interiors"
-    },
-    {
-      id: 2,
-      title: "Wall Pictures",
-      bgImage: "/media/wall2.webp",
-      description: "Traditional patterns with elegant touch"
-    },
-    {
-      id: 3,
-      title: "China Wallpapers",
-      bgImage: "/media/wall3.webp",
-      description: "Rich textures for depth and dimension"
-    },
-    {
-      id: 4,
-      title: "Wall Tiles & Sheet",
-      bgImage: "/media/wall4.webp",
-      description: "Luxury wallpapers for elite spaces"
-    }
-  ];
+export default function FourCards({
+  data = [],
+  cardWidth = "w-full", // dynamic width
+  showLine = true,      // bottom line show/hide
+  lineColor = "", // bottom line color
+  cols="4"
 
+}) {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cards.map((card) => (
+      <div  className={`grid gap-6 md:gap-8 
+    ${cols === 1 && "md:grid-cols-1"}
+    ${cols === 2 && "md:grid-cols-2"}
+    ${cols === 3 && "md:grid-cols-3"}
+    ${cols === 4 && "md:grid-cols-4"}
+  `}>
+
+        {data.map((card) => (
           <div 
             key={card.id}
-            className="group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-transparent"
+            className={`group overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-transparent ${cardWidth}`}
           >
+
             {/* Background Image */}
             <div 
               className="h-64 bg-cover bg-center"
               style={{ backgroundImage: `url('${card.bgImage}')` }}
             />
-            {/* Title OUTSIDE Image */}
+
+            {/* Title + Bottom Line */}
             <div className="p-4">
-              <h3 className="text-xl text-gray-900">
+              <h3 className="text-xl text-gray-900 font-medium">
                 {card.title}
               </h3>
+
+              {/* BOTTOM LINE */}
+              {showLine && (
+                <div className={`h-[0.5px] w-80 mt-3  ${lineColor}`}></div>
+              )}
             </div>
 
           </div>
         ))}
+
       </div>
     </div>
   );

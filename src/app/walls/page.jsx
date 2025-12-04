@@ -57,7 +57,17 @@ function page() {
     backgroundImage: "url('/media/bg-arm.jpg')",
   }}>
       <WallpaperGallery />
-      <FourCards/>
+      <FourCards 
+      data={[
+    { id: 1, title: "Korean Wallpapers", bgImage: "/media/wall1.webp" },
+    { id: 2, title: "Wall Pictures", bgImage: "/media/wall2.webp" },
+    { id: 3, title: "China Wallpapers", bgImage: "/media/wall3.webp" },
+    { id: 4, title: "Wall Tiles & Sheet", bgImage: "/media/wall4.webp" }
+  ]}
+  cardWidth="w-full"
+  lineColor = " "
+  cols={4}
+      />
       <ThreeCardSlider data={homeCategories}
       imageWidth='w-full md:w-3/4 lg:w-2/3 mx-auto'
       cols={2} 

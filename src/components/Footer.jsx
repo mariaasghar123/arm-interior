@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from './Logo'
-
+import Link from 'next/link'
 function Footer() {
   return (
     <>
@@ -15,9 +15,10 @@ function Footer() {
             <p className='text-white text-2xl md:text-4xl font-bold mb-6 md:mb-8'>
               WE TAKE CARE OF YOUR HOME
             </p>
+            <Link href="/contact-us">
             <button className='bg-yellow-400 hover:bg-black text-black hover:text-white font-semibold px-8 py-3 md:px-10 md:py-4 rounded-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer'>
   Connect With Us
-</button>
+</button> </Link>
 
           </div>
 
