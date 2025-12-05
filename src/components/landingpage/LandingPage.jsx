@@ -9,6 +9,7 @@ import AboutUs from './AboutUs'
 import ProductSlider from '@/app/shop/component/ProductSlider'
 import CustomerReviews from './Review'
 import FAQ from './FAQ'
+import WhatsAppButton from './WhatsappButton'
 
 function LandingPage() {
 
@@ -42,6 +43,7 @@ function LandingPage() {
       <ProductSlider/>
       <CustomerReviews/>
       <FAQ/>
+      <WhatsAppButton/>
     </div>
   )
 }
