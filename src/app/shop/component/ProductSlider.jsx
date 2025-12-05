@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -129,10 +130,11 @@ export default function ProductSlider() {
                 {products
                   .slice(slideIndex * visible, (slideIndex + 1) * visible)
                   .map((product) => (
+                    <Link key={product.id} href={`/shop/${product.id}`}>
                     <div
-                      key={product.id}
+                      
                       className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2 
-                      w-full md:w-1/2 lg:w-1/3 flex flex-col relative overflow-hidden group"
+                      w-full md:w-1/2 lg:w-3/3 flex flex-col relative overflow-hidden group"
                     >
                       {/* Image */}
                       <div className="relative w-full h-56 md:h-60 lg:h-64 overflow-hidden">
@@ -181,6 +183,7 @@ export default function ProductSlider() {
                         </div>
                       </div>
                     </div>
+</Link>
                   ))}
               </div>
             ))}
@@ -211,9 +214,11 @@ export default function ProductSlider() {
 
       {/* All Products */}
       <div className="text-center">
+        <Link href="/shop">
         <button className="bg-black text-white py-3 px-10 rounded-full text-lg font-semibold hover:bg-gray-800 transition flex items-center justify-center gap-2 mx-auto">
           <i className="fas fa-th-large"></i> View All Products
         </button>
+        </Link>
       </div>
     </div>
   );
