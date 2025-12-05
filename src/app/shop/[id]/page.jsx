@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Tabs from "./component/Tabs";
+import Link from "next/link";
 export default async function ProductDetailPage({ params }) {
   const { id } = await params;
 
@@ -126,9 +127,12 @@ export default async function ProductDetailPage({ params }) {
         )}
       </div>
       {/* ADD TO CART BUTTON */}
-<button className="mt-6 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
+      <Link href="/cart">
+      <button className="mt-6 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
   Add to Cart
 </button>
+      </Link>
+
 
       <p className="mt-6 text-lg">
         <Tabs/>
@@ -136,3 +140,8 @@ export default async function ProductDetailPage({ params }) {
     </div>
   );
 }
+
+
+
+
+
