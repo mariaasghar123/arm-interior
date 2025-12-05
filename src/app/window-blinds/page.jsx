@@ -5,10 +5,7 @@ import Windowblind1 from './components/Windowblind1';
 import FourCards from '../wallpapers/components/FourCards';
 
 function page() {
-  const homeCategories = [
-  { id: 1, title: "Modern Wallpapers", image: "/media/wall6.webp", description: "Latest designs" },
-  { id: 2, title: "Luxury Vinyl", image: "/media/wall7.webp", description: "Premium quality" },
-];
+  
   return (
     <div>
       <div

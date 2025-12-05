@@ -1,33 +1,29 @@
-import HeroSection from '@/components/landingpage/HeroSection'
-import WallpaperGallery from '@/components/landingpage/wallpapercategories'
+
 import Navbar from '@/components/Navbar'
 import React from 'react'
-import FourCards from './components/FourCards';
-import ThreeCardSlider from '@/components/landingpage/Threecards';
+import VideosCards from '../wall-sticker-self-adhesive/self-adhesive-videos/component/VideosCards';
+import WallStickerComponent from '../wall-sticker-self-adhesive/component/WallStickerComponent';
 
 function page() {
-  const homeCategories = [
-  { id: 1, title: "Modern Wallpapers", image: "/media/wall6.webp" },
-  { id: 2, title: "Luxury Vinyl", image: "/media/wall7.webp" },
-];
-
-  
+ 
   return (
     <div>
       <div
         className="bg-cover bg-center bg-no-repeat relative"
         style={{
-          backgroundImage: "url('/media/wallpaperbg.avif')",
+          backgroundImage: "url('/media/bg-arm.jpg')",
         }}
       >
+        <div className='absolute inset-0 bg-black/10'></div>
         <Navbar />
         <div>
-          <p className="text-4xl lg:text-6xl text-center p-9 font-bold py-20">
-            WALLPAPERS
+          <p className="text-4xl text-black lg:text-6xl text-center p-9 font-bold py-20 relative z-30">
+            Marble Pvc Tiles
+
           </p>
         </div>
 
-        {/* 🌊 Wavy Bottom Shape */}
+        {/* Wavy Bottom Shape */}
         <div
           className="absolute bottom-0 left-0 right-0"
           style={{ lineHeight: 0 }}
@@ -58,26 +54,19 @@ function page() {
   style={{
     backgroundImage: "url('/media/bg-arm.jpg')",
   }}>
-      <WallpaperGallery />
-      <FourCards 
-      data={[
-    { id: 1, title: "Korean Wallpapers", bgImage: "/media/wall1.webp", link:"/wallpapers/korean-wallpapers" },
-    { id: 2, title: "Wall Pictures", bgImage: "/media/wall2.webp", link:"/wallpapers/wall-pictures" },
-    { id: 3, title: "China Wallpapers", bgImage: "/media/wall3.webp", link:"/wallpapers/china-wallpapers" },
-    { id: 4, title: "Wall Tiles & Sheet", bgImage: "/media/wall4.webp", link:"/wallpapers/wall-tiles-sheet" },
-  ]}
-  cardWidth="w-full"
-  lineColor = " "
-  cols={4}
-      />
-      <ThreeCardSlider data={homeCategories}
-      imageWidth='w-full md:w-3/4 lg:w-2/3 mx-auto'
-      cols={2} 
-      title="Home Wallpapers"
-      subtitle="Trending designs curated for you"
-      interval={4000}
-      />
-  </div>
+<WallStickerComponent
+  title="Features of PVC Marble Tile"
+  videoBtn={{ text: " Videos", link: "/wallpapers/wall-tiles-sheet/marble-pvc-tiles/marble-pvc-tiles-videos" }}
+  // pdf1Btn={{ text: "Download PDF 1", link: "/pdfs/english.pdf"}}
+  pdf2Btn={{ text: "Download PDF 2", link: "/pdfs/urdu.pdf" }}
+>
+  <ul className="list-disc pl-5 space-y-1">
+    <li>High gloss finish</li>
+    <li>Self-adhesive, easy installation</li>
+    <li>Water-resistant material</li>
+    <li>Long-lasting durability</li>
+  </ul>
+</WallStickerComponent>  </div>
     </div>
   );
 }
