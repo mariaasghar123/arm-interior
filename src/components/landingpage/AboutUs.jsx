@@ -38,7 +38,7 @@ export default function AboutUs() {
                   <p className="text-gray-700 leading-relaxed">
                     To transform ordinary spaces into extraordinary experiences through 
                     innovative design solutions and premium quality materials. We believe 
-                    every space tells a story, and we're here to help write yours.
+                    every space tells a story, and we are here to help write yours.
                   </p>
                 </div>
               </div>
