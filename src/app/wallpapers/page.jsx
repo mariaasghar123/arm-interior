@@ -71,7 +71,7 @@ function page() {
   cols={4}
       />
       <ThreeCardSlider data={homeCategories}
-      imageWidth='w-full md:w-3/4 lg:w-2/3 mx-auto'
+      imageWidth='w-full md:w-3/4 mx-auto'
       cols={2} 
       title="Home Wallpapers"
       subtitle="Trending designs curated for you"

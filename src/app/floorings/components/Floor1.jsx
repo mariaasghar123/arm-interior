@@ -16,7 +16,8 @@ export default function Floor1() {
       path: "/products/wooden-laminate",
       bgColor: "from-amber-900/80 to-amber-950/90",
       textColor: "text-amber-50",
-      description: "Premium quality wooden laminate flooring for elegant interiors"
+      description:
+        "Premium quality wooden laminate flooring for elegant interiors",
     },
     {
       id: 2,
@@ -26,108 +27,112 @@ export default function Floor1() {
       path: "/products/grass-carpet",
       bgColor: "from-green-900/80 to-green-950/90",
       textColor: "text-green-50",
-      description: "Natural looking grass carpet for outdoor and indoor spaces"
-    }
+      description:
+        "Natural looking grass carpet for outdoor and indoor spaces",
+    },
   ];
 
   const handleCardClick = (path) => {
     router.push(path);
   };
 
-  const handleCardHover = (id) => {
-    setHoveredCard(id);
-  };
-
-  const handleCardLeave = () => {
-    setHoveredCard(null);
-  };
-
   return (
-    <div className="w-full bg-gradient-to-b from-gray-100 to-gray-200 my-10 bg-transparent">
-      {/* Image Cards Container - Full width with no extra spacing */}
-      <div className="relative w-full h-[300px] md:h-[400px] lg:h-[400px] overflow-hidden">
-        {/* Cards Grid - Full width container */}
-        <div className="relative h-full flex flex-col md:flex-row">
-          {cards.map((card, index) => (
+    <div className="w-full bg-gray-100 my-10">
+      <div className="relative w-full h-auto md:h-[400px] overflow-hidden">
+        <div className="relative flex flex-col md:flex-row h-full">
+          {cards.map((card) => (
             <div
               key={card.id}
-              className={`relative flex-1 h-1/2 md:h-full transition-all duration-700 ease-in-out overflow-hidden cursor-pointer
-                ${hoveredCard === card.id ? 'md:flex-[3] z-10' : 'md:flex-1'}
-                ${hoveredCard && hoveredCard !== card.id ? 'opacity-90 md:opacity-80' : 'opacity-100'}
-                ${index === 0 ? 'md:rounded-r-none' : ''}
-                ${index === cards.length - 1 ? 'md:rounded-l-none' : ''}
+              className={`
+                group relative flex-1 h-[280px] sm:h-[320px] md:h-full 
+                overflow-hidden cursor-pointer transition-all duration-700
+                ${hoveredCard === card.id ? "md:flex-[2]" : "md:flex-1"}
               `}
-              onMouseEnter={() => handleCardHover(card.id)}
-              onMouseLeave={handleCardLeave}
+              onMouseEnter={() => setHoveredCard(card.id)}
+              onMouseLeave={() => setHoveredCard(null)}
               onClick={() => handleCardClick(card.path)}
             >
-              {/* Background Image with Enhanced Overlay */}
-              <div 
+              {/* Background image */}
+              <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
-                style={{ 
+                style={{
                   backgroundImage: `url('${card.image}')`,
-                  transform: hoveredCard === card.id ? 'scale(1.15)' : 'scale(1.08)'
+                  transform:
+                    hoveredCard === card.id
+                      ? "scale(1.15)"
+                      : "scale(1.08)",
                 }}
               >
-                {/* Gradient Overlay - More prominent */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.bgColor} transition-opacity duration-500 ${
-                  hoveredCard === card.id ? 'opacity-30' : 'opacity-50'
-                }`}></div>
-                
-                {/* Additional Dark Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${card.bgColor} 
+                    transition-opacity duration-500 
+                    ${hoveredCard === card.id ? "opacity-30" : "opacity-50"}
+                  `}
+                ></div>
+
+                {/* Extra overlay for text */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               </div>
 
-              {/* Content - Adjusted for better positioning */}
-              <div className="relative h-full flex flex-col justify-end p-4 md:p-6 lg:p-8">
-                {/* Title and Subtitle - Larger and bolder */}
-                <div className={`transform transition-all duration-500 ${
-                  hoveredCard === card.id ? 'translate-y-0' : 'translate-y-1'
-                }`}>
-                  <h3 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-1 md:mb-2 ${card.textColor} drop-shadow-2xl tracking-tight`}>
-                    {card.title}
-                  </h3>
-                  <p className={`text-xl sm:text-2xl md:text-3xl font-bold ${card.textColor} opacity-95 drop-shadow-xl`}>
-                    {card.subtitle}
-                  </p>
-                </div>
+              {/* Text Content */}
+              <div className="relative h-full flex flex-col justify-end p-4 sm:p-6">
+                <h3
+                  className={`font-black tracking-tight drop-shadow-2xl
+                    text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+                    ${card.textColor}
+                  `}
+                >
+                  {card.title}
+                </h3>
 
-                {/* Description (Shows on hover) */}
-                <div className={`mt-4 md:mt-6 transform transition-all duration-500 ${
-                  hoveredCard === card.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  <p className={`text-base sm:text-lg md:text-xl ${card.textColor} max-w-md lg:max-w-lg drop-shadow-lg font-medium`}>
-                    {card.description}
-                  </p>
-                </div>
+                <p
+                  className={`text-lg sm:text-xl md:text-2xl font-semibold ${card.textColor}`}
+                >
+                  {card.subtitle}
+                </p>
 
-                {/* CTA Indicator (Shows on hover) */}
-                <div className={`mt-4 md:mt-6 transform transition-all duration-500 delay-75 ${
-                  hoveredCard === card.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  <div className={`inline-flex items-center gap-2 ${card.textColor} bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full font-medium text-sm md:text-base`}>
-                    <span>View Details</span>
-                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                {/* Description (Desktop hover only) */}
+                <p
+                  className={`hidden md:block mt-4 max-w-md text-base md:text-lg 
+                    drop-shadow-xl transition-all duration-500
+                    ${hoveredCard === card.id ? "opacity-100" : "opacity-0"}
+                    ${card.textColor}
+                  `}
+                >
+                  {card.description}
+                </p>
 
-              {/* Click Indicator - More subtle */}
-              <div className={`absolute top-4 right-4 transform transition-all duration-300 ${
-                hoveredCard === card.id ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}>
-                <div className={`${card.textColor} bg-black/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium`}>
-                  Click to explore
+                {/* CTA Button */}
+                <div
+                  className={`hidden md:inline-flex items-center gap-2 bg-black/30 
+                    backdrop-blur-md px-4 py-2 rounded-full mt-4
+                    transition-all duration-500
+                    ${hoveredCard === card.id ? "opacity-100" : "opacity-0"}
+                    ${card.textColor}
+                  `}
+                >
+                  <span>View Details</span>
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Divider Line (Only on desktop) - More subtle */}
-        <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-white/10 z-20"></div>
+        {/* Divider (Desktop only) */}
+        <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-[1px] bg-white/20"></div>
       </div>
     </div>
   );

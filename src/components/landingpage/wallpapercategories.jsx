@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 const wallpaperCategories = [
   {
@@ -8,7 +9,9 @@ const wallpaperCategories = [
     title: 'New Arrivals',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new-arrival-5.webp'
+    image: '/media/new-arrival-5.webp',
+    link: '/wallpapers/new-arrivals',
+
   },
   {
     id: 2,

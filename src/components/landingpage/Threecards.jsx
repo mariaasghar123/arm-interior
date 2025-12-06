@@ -1,9 +1,15 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
-export default function ThreeCardSlider({ data, interval = 3000, title = "Featured Collections", subtitle = "Discover our handpicked selection of premium wallpapers", imageWidth = "w-full", cols="3" }) {
+export default function ThreeCardSlider({
+  data,
+  interval = 3000,
+  title = "Featured Collections",
+  subtitle = "Discover our handpicked selection of premium wallpapers",
+  cols = "3",
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const categories = data || [];
@@ -20,94 +26,87 @@ export default function ThreeCardSlider({ data, interval = 3000, title = "Featur
   }, [categories.length, interval]);
 
   const goToSlide = (index) => setCurrentIndex(index);
-  const goToPrev = () => setCurrentIndex((prev) => (prev === 0 ? categories.length - 1 : prev - 1));
-  const goToNext = () => setCurrentIndex((prev) => (prev + 1) % categories.length);
 
   return (
-    <div className={`${imageWidth} overflow-x-hidden mx-auto px-4 py-12 bg-transparent`}>
+    <div className="overflow-hidden w-full max-w-[1700px] mx-auto px-4 py-10">
 
-      {/* Section Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      {/* Header */}
+      <div className="text-center mb-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
           {title}
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 mt-2 text-sm sm:text-base max-w-xl mx-auto">
           {subtitle}
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="relative">
-        {/* <div className={`grid grid-cols-1 md:grid-${cols} gap-6 md:gap-8`}> */}
-        <div
-  className={`grid gap-6 md:gap-8 
-    ${cols === 1 && "md:grid-cols-1"}
-    ${cols === 2 && "md:grid-cols-2"}
-    ${cols === 3 && "md:grid-cols-3"}
-    ${cols === 4 && "md:grid-cols-4"}
-  `}
->
-          {categories.map((item, index) => {
-  const CardContent = (
-    <div
-      className={`relative group cursor-pointer transition-all duration-500 ${
-        index === currentIndex ? "transform scale-105" : "opacity-80"
-      }`}
-    >
-      {/* Image */}
-      <div className="relative h-64 md:h-80 overflow-hidden mb-4">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+      {/* Responsive Grid */}
+      <div
+        className={`
+          grid gap-6
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-${cols}
+        `}
+      >
+        {categories.map((item, index) => {
+          const Card = (
+            <div
+              className={`
+                relative group cursor-pointer
+                transition-all duration-300
+                ${index === currentIndex ? "md:scale-105" : "md:opacity-80"}
+              `}
+            >
+              {/* Image */}
+              <div className="relative h-52 sm:h-64 md:h-80 overflow-hidden rounded-xl">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+              </div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+              {/* Title */}
+              <div className="text-center mt-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                  {item.title}
+                </h3>
 
-        {index === currentIndex && (
-          <div className="absolute top-4 right-4">
-            <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
-          </div>
-        )}
-      </div>
+                <div
+                  className={`h-1 w-14 mx-auto mt-2 transition-all duration-500 ${
+                    index === currentIndex ? "bg-yellow-400 w-20" : "bg-gray-300"
+                  }`}
+                />
 
-      {/* Title & Description */}
-      <div className="text-center">
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900">{item.title}</h3>
-        <div
-          className={`h-1 w-16 mx-auto mt-2 transition-all duration-500 ${
-            index === currentIndex ? "bg-yellow-400 w-24" : "bg-gray-300"
-          }`}
-        />
-        <p className="text-gray-600 mt-3 text-sm">{item.description}</p>
-      </div>
+                <p className="text-gray-600 mt-3 text-sm sm:text-base">
+                  {item.description}
+                </p>
+              </div>
 
-      <div className="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-yellow-400/30 transition pointer-events-none"></div>
-    </div>
-  );
+              <div className="absolute inset-0 border-2 border-transparent rounded-xl group-hover:border-yellow-400/40 transition pointer-events-none"></div>
+            </div>
+          );
 
-  // Conditional Link
-  return item.link ? (
-    <Link key={item.id} href={item.link}>
-      {CardContent}
-    </Link>
-  ) : (
-    <div key={item.id}>{CardContent}</div>
-  );
-})}
-
-
-        </div>
+          return item.link ? (
+            <Link key={item.id} href={item.link}>
+              {Card}
+            </Link>
+          ) : (
+            <div key={item.id}>{Card}</div>
+          );
+        })}
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center gap-3 mt-10">
+      <div className="flex justify-center gap-3 mt-8">
         {categories.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition ${
-              index === currentIndex ? "bg-yellow-400 w-8" : "bg-gray-300"
+              index === currentIndex ? "bg-yellow-400 w-6" : "bg-gray-300"
             }`}
           />
         ))}

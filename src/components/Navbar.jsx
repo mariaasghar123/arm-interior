@@ -50,9 +50,9 @@ export default function Navbar() {
   }, [isOpen, isMobile]);
 
   return (
-    <div className="flex sm:flex-col mx-auto left-0 right-0 items-center justify-center z-50">
-      <Logo size={180} className="pl-20 sm:pl-0 z-30" />
-
+    <div className="flex sm:flex-col mx-auto left-0 right-0 items-center justify-center z-50 -mt-12 sm:-mt-0">
+      {/* <Logo size={180} className="pl-20 sm:pl-0 z-30"/> */}
+      <Logo size={180} className="pl-20 sm:pl-0 z-30 mt-15 w-[200px] sm:w-[180px] "/>
       <nav className="sm:bg-black rounded-xl px-8 py-4 flex flex-col md:flex-row items-center justify-center max-w-4xl w-full relative">
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-8 text-white font-semibold">
@@ -71,15 +71,14 @@ export default function Navbar() {
         </ul>
 
         {/* White Hamburger Button - Only show on mobile */}
-        <div className="md:hidden flex items-center mt-2">
+        <div className="md:hidden flex items-center mt-10">
           <button
             className="relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white rounded-lg p-2 shadow-md hover:shadow-lg transition-shadow group z-50"
             onClick={(e) => {
               e.stopPropagation(); // Prevent event bubbling
               setIsOpen(!isOpen);
             }}
-            aria-label="Menu"
-          >
+            aria-label="Menu">
             <span className={`w-6 h-0.5 bg-black rounded-full transition-all duration-300
               ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
             <span className={`w-6 h-0.5 bg-black rounded-full transition-all duration-200

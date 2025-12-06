@@ -134,7 +134,7 @@ export default function ProductSlider() {
                     <div
                       
                       className="bg-white rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2 
-                      w-full md:w-1/2 lg:w-3/3 flex flex-col relative overflow-hidden group"
+                      w-full md:w-2/2 lg:w-3/3 flex flex-col relative overflow-hidden group"
                     >
                       {/* Image */}
                       <div className="relative w-full h-56 md:h-60 lg:h-64 overflow-hidden">

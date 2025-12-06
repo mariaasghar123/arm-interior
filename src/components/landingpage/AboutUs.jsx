@@ -28,8 +28,8 @@ export default function AboutUs() {
             
             <div className="group cursor-pointer">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-yellow-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🏆</span>
+                <div className="w-12 p-2 h-12 rounded-lg bg-yellow-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="text-2xl p-2">🏆</span>
                 </div>
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
@@ -48,7 +48,7 @@ export default function AboutUs() {
             <div className="group cursor-pointer">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-yellow-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <span className="text-2xl">🎯</span>
+                  <span className="text-2xl p-2">🎯</span>
                 </div>
                 <div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">

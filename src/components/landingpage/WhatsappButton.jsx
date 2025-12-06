@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/1234567890" // replace with your number
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-4 left-4 z-50"
+      className="fixed bottom-4 left-10 sm:left-20 z-[9999]"
     >
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
