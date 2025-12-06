@@ -18,56 +18,64 @@ const wallpaperCategories = [
     title: 'ORIGINAL JUTE WALLPAPER',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new4.webp'
+    image: '/media/new4.webp',
+    link: '/wallpapers/original-jute-wallpaper'
   },
   {
     id: 3,
     title: 'WALL TILES & SHEET',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new.webp'
+    image: '/media/new.webp',
+    link: '/wallpapers/wall-tiles-sheet'
   },
   {
     id: 4,
     title: 'TEXTURE & STRIPES',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/bg1.webp'
+    image: '/media/bg1.webp',
+    link: '/wallpapers/texture-stripes'
   },
   {
     id: 5,
     title: '3D 4D 5D WALLPAPERS',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new2.webp'
+    image: '/media/new2.webp',
+    link: '/wallpapers/3d-4d-5d-wallpapers'
   },
   {
     id: 6,
     title: 'BRICKS & STONE',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new3.webp'
+    image: '/media/new3.webp',
+    link: '/wallpapers/bricks-stone'
   },
   {
     id: 7,
     title: 'GEOMETRICAL & ABSTRACT',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new4.webp'
+    image: '/media/new4.webp',
+    link: '/wallpapers/geometrical-abstract'
   },
   {
     id: 8,
     title: 'MOTIVES & DAMASK',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/new.webp'
+    image: '/media/new.webp',
+    link: '/wallpapers/motives-damask'
   },
   {
     id: 9,
     title: 'SALE WALLPAPERS',
     bgColor: 'bg-transparent',
     textColor: 'text-white',
-    image: '/media/bg1.webp'
+    image: '/media/bg1.webp',
+    link: '/wallpapers/sale-wallpapers'
   }
 ];
 
@@ -282,8 +290,9 @@ export default function WallpaperGallery() {
             const textSize = getTextSize();
             
             return (
+              <Link key={category.id} href={category.link || '#'}>
               <div
-                key={category.id}
+                
                 className={`absolute  overflow-hidden cursor-pointer transition-all duration-700 ease-out group ${
                   isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
                 }`}
@@ -337,6 +346,7 @@ export default function WallpaperGallery() {
                   </div>
                 )}
               </div>
+              </Link>
             );
           })}
         </div>
