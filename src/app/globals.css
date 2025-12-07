@@ -78,3 +78,20 @@ body {
 .liquid-transition {
   transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
+.wavy-underline {
+  position: relative;
+  display: inline-block; /* responsive underline */
+}
+
+.wavy-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px; /* distance from text */
+  height: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg width='100' height='12' viewBox='0 0 100 12' xmlns='http://www.w3.org/2000/svg'><path d='M0 6 Q 10 0 20 6 T 40 6 T 60 6 T 80 6 T 100 6' fill='none' stroke='%23FACC15' stroke-width='2'/></svg>");
+  background-size: 100px 12px; /* wave size */
+  background-repeat: repeat-x; /* repeat automatically */
+}

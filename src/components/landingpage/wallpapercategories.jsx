@@ -10,7 +10,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new-arrival-5.webp',
-    link: '/wallpapers/new-arrivals',
+    link: '/featured/new-arrivals',
 
   },
   {
@@ -19,7 +19,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new4.webp',
-    link: '/wallpapers/original-jute-wallpaper'
+    link: '/featured/original-jute-wallpaper'
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/bg1.webp',
-    link: '/wallpapers/texture-stripes'
+    link: '/featured/texture-stripes-1'
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new2.webp',
-    link: '/wallpapers/3d-4d-5d-wallpapers'
+    link: '/featured/3d-4d-5d-wallpaper'
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new3.webp',
-    link: '/wallpapers/bricks-stone'
+    link: '/featured/bricks-stone'
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new4.webp',
-    link: '/wallpapers/geometrical-abstract'
+    link: '/featured/geometrical-abstract-wallpaper'
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/new.webp',
-    link: '/wallpapers/motives-damask'
+    link: '/featured/motives-damask'
   },
   {
     id: 9,
@@ -75,8 +75,17 @@ const wallpaperCategories = [
     bgColor: 'bg-transparent',
     textColor: 'text-white',
     image: '/media/bg1.webp',
-    link: '/wallpapers/sale-wallpapers'
+    link: '/featured/sale-wallpaper'
+  },
+  {
+    id: 10,
+    title: '',
+    bgColor: 'bg-transparent',
+    textColor: 'text-white',
+    image: '/media/bg1.webp',
+    link: '/featured/sale-wallpaper'
   }
+
 ];
 
 export default function WallpaperGallery() {
