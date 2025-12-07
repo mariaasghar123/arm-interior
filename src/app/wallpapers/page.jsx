@@ -7,8 +7,8 @@ import ThreeCardSlider from '@/components/landingpage/Threecards';
 
 function page() {
   const homeCategories = [
-  { id: 1, title: "Modern Wallpapers", image: "/media/wall6.webp" },
-  { id: 2, title: "Luxury Vinyl", image: "/media/wall7.webp" },
+  { id: 1, title: "Modern Wallpapers", image: "/media/wall6.webp", link: "/featured/new-arrivals" },
+  { id: 2, title: "Luxury Vinyl", image: "/media/wall7.webp", link: "/pdf-albums" },
 ];
 
   

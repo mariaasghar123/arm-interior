@@ -13,7 +13,7 @@ export default function Floor1() {
       title: "WOODEN LAMINATE",
       subtitle: "8 X 48 FLOOR",
       image: "/media/wooden-laminate.jpg",
-      path: "/products/wooden-laminate",
+      path: "/wooden-laminate-8-x-48-floor",
       bgColor: "from-amber-900/80 to-amber-950/90",
       textColor: "text-amber-50",
       description:
@@ -24,7 +24,7 @@ export default function Floor1() {
       title: "GRASS CARPET",
       subtitle: "12 FT ROLL",
       image: "/media/grass-carpet.jpg",
-      path: "/products/grass-carpet",
+      path: "/grass-carpet",
       bgColor: "from-green-900/80 to-green-950/90",
       textColor: "text-green-50",
       description:

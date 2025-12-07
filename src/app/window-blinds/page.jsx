@@ -17,12 +17,12 @@ function page() {
         <Navbar />
         <Windowblind1/>
         <FourCards data={[
-    { id: 1, title: "MOTORIZED BLINDS", bgImage: "/media/window1.webp" },
-    { id: 2, title: "ROLLER WINDOW BLINDS ", bgImage: "/media/window2.webp" },
-    { id: 3, title: "VERTICAL WINDOW BLINDS", bgImage: "/media/window 3.webp" },
-    { id: 4, title: "ZEBRA WINDOW BLINDS", bgImage: "/media/window4.webp" },
-    { id: 5, title: "BAMBO0 CHICK BLINDS", bgImage: "/media/window5.webp" },
-    { id: 6, title: "SHANGRI-LA BLINDS", bgImage: "/media/window6.webp" },
+    { id: 1, title: "MOTORIZED BLINDS", bgImage: "/media/window1.webp", link: "/window-blinds/motorized-blinds" },
+    { id: 2, title: "ROLLER WINDOW BLINDS ", bgImage: "/media/window2.webp" , link: "/window-blinds/roller-window-blinds"},
+    { id: 3, title: "VERTICAL WINDOW BLINDS", bgImage: "/media/window 3.webp", link: "/window-blinds/vertical-window-blinds" },
+    { id: 4, title: "ZEBRA WINDOW BLINDS", bgImage: "/media/window4.webp", link: "/window-blinds/zebra-window-blinds" },
+    { id: 5, title: "BAMBOO CHICK BLINDS", bgImage: "/media/window5.webp", link: "/window-blinds/bamboo-chick-blinds" },
+    { id: 6, title: "SHANGRI-LA BLINDS", bgImage: "/media/window6.webp", link: "/window-blinds/shangri-la-blinds" },
   ]}
   
   cardWidth="w-full mx-auto"
